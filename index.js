@@ -8,6 +8,7 @@ import { checkAuth, handleValidationErrors } from "./utils/index.js";
 import { UserController, PostController } from "./controllers/index.js";
 import { postCreateValidation } from "./validations/post.js";
 
+//test
 mongoose
   .connect(
     "mongodb+srv://admin1825:admin1825@cluster0.0w6e660.mongodb.net/blog?retryWrites=true&w=majority"
