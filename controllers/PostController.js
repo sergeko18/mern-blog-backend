@@ -1,5 +1,23 @@
 import PostModel from "../models/Post.js";
 
+export const getLastTags = async (req, res) => {
+  try {
+    const posts = await PostModel.find().limit(7);
+
+    const tags = posts
+      .map((obj) => obj.tags)
+      .flat()
+      .slice(0, 5);
+
+    res.json(tags);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: "Could not find the tags",
+    });
+  }
+};
+
 export const getAll = async (req, res) => {
   try {
     const posts = await PostModel.find().populate("user").exec(); //Connected relationship from PostModel ".populate("user").exec();"
