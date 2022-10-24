@@ -11,9 +11,7 @@ import { postCreateValidation } from "./validations/post.js";
 
 //test
 mongoose
-  .connect(
-    "mongodb+srv://admin1825:admin1825@cluster0.0w6e660.mongodb.net/blog?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("DB OK!");
   })
@@ -79,7 +77,7 @@ app.patch(
   PostController.update
 );
 
-app.listen(1825, (err) => {
+app.listen(process.env.PORT || 1825, (err) => {
   if (err) {
     return console.log(err);
   }
