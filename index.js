@@ -42,7 +42,7 @@ app.use("/uploads", express.static("uploads")); //The /uploads keep static files
 
 app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
   res.json({
-    url: `/uploads/${req.file.originalname}`,
+    url: `uploads/${req.file.originalname}`,
   });
 });
 
